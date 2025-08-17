@@ -1,0 +1,279 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rehan Creative Web — Modern Websites</title>
+  <meta name="description" content="Affordable, modern and mobile‑friendly websites by Rehan Creative Web. Get a free demo and fast delivery." />
+  <meta property="og:title" content="Rehan Creative Web — Modern Websites" />
+  <meta property="og:description" content="Affordable, modern and mobile‑friendly websites. Message on WhatsApp for a free demo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://picsum.photos/1200/630?random=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1220; --card:#14182b; --muted:#9aa4b2; --text:#e7ecf3; --brand:#5b8cff; --brand-2:#6ee7b7; --ring:rgba(91,140,255,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 600px at 10% -10%, rgba(91,140,255,.12), transparent 40%),radial-gradient(900px 500px at 90% -10%, rgba(110,231,183,.10), transparent 50%), var(--bg);color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px, 92%);margin-inline:auto}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.1rem;border-radius:14px;font-weight:700;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));backdrop-filter: blur(6px);box-shadow: 0 10px 30px rgba(0,0,0,.25);}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 36px rgba(0,0,0,.35)}
+    .btn.primary{background:linear-gradient(180deg, var(--brand), #3b6af7);border:none;color:white}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.15)}
+    .tag{display:inline-block;padding:.35rem .7rem;border:1px solid rgba(255,255,255,.15);border-radius:999px;font-size:.8rem;color:var(--muted)}
+    /* Navbar */
+    .nav{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(10,14,28,.85), rgba(10,14,28,.35) 60%, transparent);backdrop-filter: blur(8px)}
+    .nav .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:.6rem;align-items:center;font-weight:800}
+    .logo i{color:var(--brand)}
+    .menu{display:flex;gap:1rem;align-items:center}
+    .menu a{color:var(--muted);font-weight:600;padding:.5rem .7rem;border-radius:10px}
+    .menu a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+    .hamburger{display:none;font-size:1.5rem}
+    /* Hero */
+    .hero{position:relative;padding:80px 0 70px;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1557264337-e8a93017fe92?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;opacity:.12;filter:grayscale(40%)}
+    .hero .inner{position:relative}
+    .headline{font-size:clamp(2rem, 6vw, 3.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0 0 .8rem}
+    .sub{color:var(--muted);font-size:clamp(1rem, 2.6vw, 1.15rem);max-width:720px}
+    .cta{margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+    .stat{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);padding:18px;border-radius:16px;text-align:center}
+    .stat h3{margin:0;font-size:1.6rem}
+    .stat p{margin:.3rem 0 0;color:var(--muted);font-weight:600}
+    /* Sections */
+    section{padding:70px 0}
+    h2.section{font-size:2rem;margin:0 0 1rem}
+    p.lead{color:var(--muted);max-width:720px}
+    .grid{display:grid;gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);padding:20px;border-radius:18px}
+    .card h3{margin:.2rem 0 .4rem}
+    .card p{color:var(--muted)}
+    /* Services */
+    .services{grid-template-columns:repeat(3,1fr)}
+    .service i{font-size:1.6rem;color:var(--brand)}
+    /* Portfolio */
+    .portfolio{grid-template-columns:repeat(3,1fr)}
+    .work{position:relative;overflow:hidden;border-radius:16px}
+    .work img{width:100%;height:220px;object-fit:cover;display:block;filter:saturate(1.05)}
+    .work .cap{position:absolute;inset:auto 0 0 0;padding:12px 14px;background:linear-gradient(180deg, transparent, rgba(0,0,0,.7));font-weight:700}
+    /* Pricing */
+    .pricing{grid-template-columns:repeat(3,1fr)}
+    .price .amt{font-size:2rem;font-weight:800}
+    .badge{padding:.25rem .6rem;border-radius:999px;background:rgba(110,231,183,.15);color:#d2f7e7;border:1px solid rgba(110,231,183,.3);font-size:.75rem;font-weight:800}
+    /* Contact */
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--text);outline:none}
+    input:focus, textarea:focus{border-color:var(--brand);box-shadow:0 0 0 6px var(--ring)}
+    textarea{min-height:130px}
+    .footer{padding:40px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.08)}
+    /* Responsive */
+    @media (max-width:980px){
+      .services,.portfolio,.pricing{grid-template-columns:1fr 1fr}
+      .stats{grid-template-columns:1fr 1fr 1fr}
+    }
+    @media (max-width:720px){
+      .menu{display:none}
+      .hamburger{display:block}
+      .services,.portfolio,.pricing{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+    }
+    /* Reveal animations */
+    [data-reveal]{opacity:0;transform: translateY(16px);transition: all .6s ease}
+    [data-reveal].show{opacity:1;transform:none}
+    /* Floating WhatsApp */
+    .whatsapp{position:fixed;right:18px;bottom:18px;z-index:60}
+    .wa-btn{height:56px;width:56px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container bar">
+      <a class="logo" href="#home"><i class="ri-flutter-fill"></i> <span>Rehan Creative Web</span></a>
+      <nav class="menu" id="menu">
+        <a href="#services">Services</a>
+        <a href="#work">Portfolio</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn ghost" href="https://wa.me/923001234567?text=Hi%20Rehan,%20I%20need%20a%20website" target="_blank"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+      </nav>
+      <a class="hamburger" id="hamburger"><i class="ri-menu-3-line"></i></a>
+    </div>
+  </header>  <!-- HERO -->  <section id="home" class="hero">
+    <div class="container inner">
+      <span class="tag" data-reveal>Affordable • Fast • Modern</span>
+      <h1 class="headline" data-reveal>Modern, Mobile‑Friendly Websites that Grow Your Business</h1>
+      <p class="sub" data-reveal>I build clean, high‑converting websites for shops, startups and personal brands. Get a free demo first, pay when you love it.</p>
+      <div class="cta" data-reveal>
+        <a class="btn primary" href="#pricing"><i class="ri-flashlight-line"></i> See Packages</a>
+        <a class="btn" href="https://wa.me/923001234567?text=Hi%20Rehan,%20share%20a%20demo%20please" target="_blank"><i class="ri-whatsapp-line"></i> Get Free Demo</a>
+      </div>
+      <div class="stats">
+        <div class="stat" data-reveal><h3>20+</h3><p>Projects Delivered</p></div>
+        <div class="stat" data-reveal><h3>5★</h3><p>Client Reviews</p></div>
+        <div class="stat" data-reveal><h3>3–5 Days</h3><p>Avg. Delivery</p></div>
+      </div>
+    </div>
+  </section>  <!-- SERVICES -->  <section id="services">
+    <div class="container">
+      <h2 class="section" data-reveal>Services</h2>
+      <p class="lead" data-reveal>Everything you need to launch online — from a stunning design to blazing speed and basic SEO.</p>
+      <div class="grid services">
+        <div class="card service" data-reveal>
+          <i class="ri-smartphone-line"></i>
+          <h3>Responsive Design</h3>
+          <p>Your site looks perfect on mobile, tablet and desktop.</p>
+        </div>
+        <div class="card service" data-reveal>
+          <i class="ri-rocket-2-line"></i>
+          <h3>Fast Performance</h3>
+          <p>Optimized assets and clean code for quick load times.</p>
+        </div>
+        <div class="card service" data-reveal>
+          <i class="ri-seo-line"></i>
+          <h3>Basic SEO</h3>
+          <p>Search‑friendly structure, titles and metadata to get found.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- PORTFOLIO -->  <section id="work">
+    <div class="container">
+      <h2 class="section" data-reveal>Portfolio</h2>
+      <p class="lead" data-reveal>Some recent work and sample concepts. Replace images and links with your own projects.</p>
+      <div class="grid portfolio">
+        <a class="work" href="#" target="_blank" data-reveal>
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project 1" />
+          <span class="cap">Startup Landing Page</span>
+        </a>
+        <a class="work" href="#" target="_blank" data-reveal>
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Project 2" />
+          <span class="cap">Business Website</span>
+        </a>
+        <a class="work" href="#" target="_blank" data-reveal>
+          <img src="https://images.unsplash.com/photo-1551817958-20204c6e45a0?q=80&w=1200&auto=format&fit=crop" alt="Project 3" />
+          <span class="cap">E‑commerce Concept</span>
+        </a>
+      </div>
+    </div>
+  </section>  <!-- PRICING -->  <section id="pricing">
+    <div class="container">
+      <h2 class="section" data-reveal>Packages</h2>
+      <p class="lead" data-reveal>Simple pricing that fits your stage. Pay 30% advance, rest after final approval.</p>
+      <div class="grid pricing">
+        <div class="card price" data-reveal>
+          <span class="badge">Starter</span>
+          <h3>Single Page</h3>
+          <p>Perfect for personal brand or simple business info.</p>
+          <p class="amt">PKR 7,500</p>
+          <ul>
+            <li>• One page design</li>
+            <li>• Mobile responsive</li>
+            <li>• 3 revisions</li>
+          </ul>
+          <a class="btn primary" href="https://wa.me/923001234567?text=Starter%20Package%20please" target="_blank">Choose Starter</a>
+        </div>
+        <div class="card price" data-reveal>
+          <span class="badge">Popular</span>
+          <h3>Business</h3>
+          <p>Multi‑page site for shops and services.</p>
+          <p class="amt">PKR 15,000</p>
+          <ul>
+            <li>• 4–6 pages</li>
+            <li>• Contact form + WhatsApp</li>
+            <li>• Basic SEO setup</li>
+          </ul>
+          <a class="btn primary" href="https://wa.me/923001234567?text=Business%20Package%20please" target="_blank">Choose Business</a>
+        </div>
+        <div class="card price" data-reveal>
+          <span class="badge">Pro</span>
+          <h3>E‑commerce</h3>
+          <p>Product pages and cart (using your preferred stack).</p>
+          <p class="amt">PKR 35,000</p>
+          <ul>
+            <li>• 8–12 pages</li>
+            <li>• Payment integration</li>
+            <li>• Speed optimization</li>
+          </ul>
+          <a class="btn primary" href="https://wa.me/923001234567?text=Ecommerce%20Package%20please" target="_blank">Choose Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- CONTACT -->  <section id="contact">
+    <div class="container">
+      <h2 class="section" data-reveal>Contact</h2>
+      <p class="lead" data-reveal>Tell me a bit about your project and I’ll reply with a tailored plan and a free mockup.</p>
+      <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:18px">
+        <form id="contactForm" class="card" data-reveal>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="whatsapp" placeholder="WhatsApp (optional)">
+          <textarea name="message" placeholder="Project details…" required></textarea>
+          <button class="btn primary" type="submit"><i class="ri-send-plane-line"></i> Send Message</button>
+          <p id="formMsg" style="margin:8px 2px 0;color:var(--muted)"></p>
+        </form>
+        <div class="card" data-reveal>
+          <h3>Why choose me?</h3>
+          <p>• Friendly communication<br>• Quick turnaround<br>• Clear revisions<br>• Support after delivery</p>
+          <hr style="border-color:rgba(255,255,255,.08)">
+          <p><i class="ri-mail-line"></i> rehan@example.com<br>
+             <i class="ri-whatsapp-line"></i> +92 300 1234567</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- FOOTER -->  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>© <span id="y"></span> Rehan Creative Web</span>
+      <span>Built with ❤ — <a href="#home">Back to top</a></span>
+    </div>
+  </footer>  <!-- Floating WhatsApp Button -->  <div class="whatsapp">
+    <a class="wa-btn" aria-label="WhatsApp" href="https://wa.me/923001234567?text=Hi%20Rehan,%20I%20need%20a%20website" target="_blank">
+      <i class="ri-whatsapp-fill" style="font-size:1.5rem"></i>
+    </a>
+  </div>  <script>
+    // Mobile menu toggle
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    ham?.addEventListener('click',()=>{
+      const visible = getComputedStyle(menu).display !== 'none';
+      menu.style.display = visible ? 'none' : 'flex';
+    });
+
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const els=[...document.querySelectorAll('[data-reveal]')];
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show'); io.unobserve(e.target);}});
+    },{threshold:.18});
+    els.forEach(el=>io.observe(el));
+
+    // Contact form (no backend) — opens email client + WhatsApp if present
+    const f=document.getElementById('contactForm');
+    const m=document.getElementById('formMsg');
+    f.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data=new FormData(f);
+      const name=data.get('name');
+      const email=data.get('email');
+      const wa=(data.get('whatsapp')||'').toString().replace(/\D/g,'');
+      const msg=data.get('message');
+      const subject=encodeURIComponent('New project inquiry from '+name);
+      const body=encodeURIComponent(`${msg}\n\nFrom: ${name} <${email}>`);
+      // open mailto
+      window.location.href=`mailto:rehan@example.com?subject=${subject}&body=${body}`;
+      // optional WhatsApp
+      if(wa.length>=10){
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent('Hi '+name+', thanks for your message! I will reply shortly. — Rehan')}`,'_blank');
+      }
+      m.textContent='Thanks! Your email app should open now. I will get back to you soon.';
+      f.reset();
+    });
+  </script></body>
+            </html>
