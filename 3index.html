@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhammad Rehan — Web Developer</title>
+  <meta name="description" content="Modern, blazing-fast, animated portfolio — built with pure HTML/CSS/JS." />
+  <meta property="og:title" content="Muhammad Rehan — Web Developer" />
+  <meta property="og:description" content="A sleek, animated, mobile-first portfolio that impresses at first glance." />
+  <meta name="theme-color" content="#6c5ce7" />
+  <style>
+    :root{
+      --bg:#0b0f17;--panel:#0f1729b3;--text:#e6e7ee;--muted:#9aa4b2;
+      --brand:#7c6cff;--brand2:#00ffd5;--glass:rgba(255,255,255,.06);
+      --ring:rgba(124,108,255,.45);
+      --card:#0f1629;--ok:#22c55e;--warn:#f59e0b;--danger:#ef4444;
+    }
+    *{box-sizing:border-box}html,body{height:100%}body{
+      margin:0;background:radial-gradient(1200px 800px at 70% -10%, #1a1444 0%, transparent 60%),
+      radial-gradient(900px 600px at -10% 30%, #05283a 0%, transparent 55%), var(--bg);
+      color:var(--text);font:500 16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial;
+      overflow-x:hidden;
+    }
+    /* floating blobs */
+    .blob{position:fixed;inset:auto;z-index:-1;filter:blur(40px);opacity:.65;mix-blend-mode:screen;pointer-events:none}
+    .b1{top:-120px;left:-120px;width:360px;height:360px;background:radial-gradient(circle at 30% 30%, #5e5bff, transparent 60%)}
+    .b2{bottom:-140px;right:-100px;width:420px;height:420px;background:radial-gradient(circle at 70% 50%, #00ffd5, transparent 55%)}
+    .b3{top:40%;left:60%;width:280px;height:280px;background:radial-gradient(circle at 50% 50%, #ff7ac6, transparent 60%)}
+    @keyframes float{to{transform:translateY(15px)}}
+    .blob{animation:float 4s ease-in-out alternate infinite}
+
+    /* nav */
+    header{
+      position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(12px);
+      background:linear-gradient(180deg,rgba(11,15,23,.75),rgba(11,15,23,.25));
+      border-bottom:1px solid rgba(124,108,255,.15)
+    }
+    .nav{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 16px}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .logo svg{width:28px;height:28px}
+    .nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px}
+    .nav a:hover,.nav a.active{color:var(--text);background:var(--glass)}
+    .spacer{flex:1}
+    .btn{background:linear-gradient(135deg,var(--brand),#5bd3ff);color:white;
+      padding:10px 14px;border:none;border-radius:12px;font-weight:700;box-shadow:0 6px 22px -6px var(--ring);cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(124,108,255,.35)}
+    .toggle{margin-left:8px;border:1px solid rgba(124,108,255,.35);padding:8px 10px;background:transparent;color:#d7d9ff;border-radius:10px;cursor:pointer}
+
+    /* hero */
+    .wrap{max-width:1100px;margin:auto;padding:28px 18px}
+    .hero{display:grid;grid-template-columns:1.2fr .9fr;gap:28px;align-items:center;padding:32px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+      border:1px solid rgba(124,108,255,.20);border-radius:20px;box-shadow:0 10px 50px -20px var(--ring)}
+    .hero .card{padding:28px}
+    h1{font-size:clamp(32px,6vw,48px);line-height:1.15;margin:8px 0 10px}
+    .grad{background:linear-gradient(90deg,#9ee0ff,#b39eff 60%,#ff8bd1);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;font-weight:700;letter-spacing:.6px;color:#cfd6ff;margin-bottom:6px}
+    .eyebrow .dot{width:8px;height:8px;border-radius:999px;background:var(--brand2);box-shadow:0 0 18px var(--brand2)}
+    .lead{color:#c2c9d6}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(124,108,255,.12);border:1px solid rgba(124,108,255,.25);color:#d8d6ff;font-weight:600}
+    .cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+    /* showcase device */
+    .device{aspect-ratio:16/10;border-radius:18px;background:#0b1222;border:1px solid rgba(255,255,255,.08);padding:10px;position:relative;overflow:hidden}
+    .bar{height:10px;border-radius:12px;background:linear-gradient(90deg,#222c45,#0e1729);display:flex;gap:6px;align-items:center;padding:0 8px}
+    .dot1,.dot2,.dot3{width:6px;height:6px;border-radius:999px}
+    .dot1{background:#ff5f56}.dot2{background:#ffbd2e}.dot3{background:#27c93f}
+    .screen{margin-top:10px;height:calc(100% - 14px);background:
+      linear-gradient(180deg,#101a2f,#0a1221 60%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%2396a8ff"/><stop offset="1" stop-color="%2300ffd5"/></linearGradient></defs><g opacity=".16"><circle cx="140" cy="120" r="90" fill="url(%23g)"/><circle cx="760" cy="380" r="120" fill="url(%23g)"/><rect x="240" y="80" width="420" height="80" rx="12" fill="url(%23g)"/></g></svg>') center/cover no-repeat;border-radius:12px;position:relative;overflow:hidden}
+    .tag{position:absolute;top:14px;left:14px;background:rgba(124,108,255,.22);border:1px solid rgba(124,108,255,.45);padding:6px 10px;border-radius:999px;color:#e9e7ff;font-weight:700}
+
+    /* sections */
+    section{scroll-margin-top:80px}
+    .section-title{font-size:26px;margin:6px 0 14px}
+    .grid{display:grid;gap:16px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    .kpi{padding:18px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,.06)}
+    .kpi b{font-size:26px}
+    .skill{display:flex;align-items:center;justify-content:space-between;margin:8px 0;color:#cbd1de}
+    .bar2{height:9px;background:#10182b;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+    .fill{height:100%;background:linear-gradient(90deg,#7c6cff,#00ffd5)}
+
+    /* projects */
+    .card.p{padding:0;overflow:hidden;transform:translateZ(0)}
+    .thumb{aspect-ratio: 16 / 9;background:
+      linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.4)),
+      url('https://images.unsplash.com/photo-1520975922284-5cbf3b62f6b8?auto=format&fit=crop&w=1200&q=60') center/cover}
+    .thumb2{background:
+      linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.4)),
+      url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60') center/cover}
+    .thumb3{background:
+      linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.4)),
+      url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=60') center/cover}
+    .p .body{padding:16px}
+    .p h3{margin:0 0 6px}
+    .p .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .mini{font-size:12px;color:#cbd1de;border:1px solid rgba(255,255,255,.12);padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.04)}
+    .p:hover{transform:translateY(-4px);transition:.25s ease;box-shadow:0 16px 50px -18px var(--ring)}
+
+    /* testimonial */
+    .quote{font-size:18px;color:#dfe3f3}
+    .who{display:flex;gap:12px;align-items:center;margin-top:10px}
+    .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(90deg,#7c6cff,#00ffd5)}
+
+    /* contact */
+    .contact{display:grid;gap:16px}
+    .field{display:flex;flex-direction:column;gap:8px}
+    input,textarea{
+      background:#0e1426;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;color:#e9ecff;
+      outline:none;box-shadow:0 0 0 0 var(--ring);transition:box-shadow .15s,border-color .15s
+    }
+    input:focus,textarea:focus{border-color:rgba(124,108,255,.55);box-shadow:0 0 0 4px rgba(124,108,255,.15)}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{padding:24px 0 40px;color:#a9b3c2;text-align:center}
+
+    /* reveal on scroll */
+    .reveal{opacity:0;transform:translateY(16px);transition:.6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    @media (max-width:640px){.cols-3{grid-template-columns:1fr}.cols-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18v3H3zM7 11h10v3H7zM10 16h4v3h-4z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c6cff"/><stop offset="1" stop-color="#00ffd5"/></linearGradient></defs></svg>
+        <span>Rehan.Dev</span>
+      </div>
+      <a href="#about" class="active">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <div class="spacer"></div>
+      <button class="toggle" id="modeBtn">🌙 Dark</button>
+      <a class="btn ghost" href="mailto:eelee05h@gmail.com">Hire Me</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card reveal">
+        <div class="eyebrow"><span class="dot"></span> HI, I’M REHAN</div>
+        <h1>Building <span class="grad">beautiful, fast & secure</span> websites.</h1>
+        <p class="lead">Full-stack minded front-end developer crafting premium UX with clean, scalable code — optimized for speed, SEO and conversions.</p>
+        <div class="chips">
+          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+          <span class="chip">Responsive</span><span class="chip">SEO</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn ghost" href="https://wa.me/923090305566" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="device card" aria-hidden="true">
+          <div class="bar"><span class="dot1"></span><span class="dot2"></span><span class="dot3"></span></div>
+          <div class="screen">
+            <span class="tag">Live Preview</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <div class="section-title">About</div>
+      <div class="grid cols-2">
+        <div class="card" style="padding:18px">
+          <p>
+            I design & develop lightning-fast, mobile-friendly websites for brands that want to stand out.
+            Clean code, pixel-perfect UI, and measurable results. Need a portfolio, business site or
+            a high-converting landing page? I’ve got you.
+          </p>
+          <div class="grid cols-3" style="margin-top:10px">
+            <div class="kpi"><b>95+</b><div>Projects & demos</div></div>
+            <div class="kpi"><b>0.9s</b><div>First Contentful Paint</div></div>
+            <div class="kpi"><b>100%</b><div>Mobile responsive</div></div>
+          </div>
+        </div>
+        <div class="card" style="padding:18px">
+          <div class="skill"><span>Performance</span><span>92/100</span></div>
+          <div class="bar2"><div class="fill" style="width:92%"></div></div>
+          <div class="skill"><span>Accessibility</span><span>96/100</span></div>
+          <div class="bar2"><div class="fill" style="width:96%"></div></div>
+          <div class="skill"><span>Best Practices</span><span>98/100</span></div>
+          <div class="bar2"><div class="fill" style="width:98%"></div></div>
+          <div class="skill"><span>SEO</span><span>90/100</span></div>
+          <div class="bar2"><div class="fill" style="width:90%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal" style="margin-top:26px">
+      <div class="section-title">Highlights</div>
+      <div class="grid cols-3">
+        <div class="kpi">
+          <b>⚡ Ultra Fast</b>
+          <div>Optimized assets, lazy loading & zero-dependency animations.</div>
+        </div>
+        <div class="kpi">
+          <b>🧊 Clean UI</b>
+          <div>Glassmorphism + soft shadows for a premium, modern look.</div>
+        </div>
+        <div class="kpi">
+          <b>🛡️ Secure</b>
+          <div>Best practices baked in. No shady scripts.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal" style="margin-top:26px">
+      <div class="section-title">Selected Projects</div>
+      <div class="grid cols-3">
+        <article class="card p">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Neon Landing Page</h3>
+            <div class="tags"><span class="mini">HTML</span><span class="mini">CSS</span><span class="mini">A11y</span></div>
+          </div>
+        </article>
+        <article class="card p">
+          <div class="thumb2"></div>
+          <div class="body">
+            <h3>Business Website</h3>
+            <div class="tags"><span class="mini">Multi-page</span><span class="mini">SEO</span><span class="mini">Responsive</span></div>
+          </div>
+        </article>
+        <article class="card p">
+          <div class="thumb3"></div>
+          <div class="body">
+            <h3>Product Showcase</h3>
+            <div class="tags"><span class="mini">JS</span><span class="mini">Animation</span><span class="mini">Fast</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="reveal" style="margin-top:26px">
+      <div class="section-title">What Clients Say</div>
+      <div class="card" style="padding:18px">
+        <div class="quote">“Rehan transformed our ideas into a stunning, fast website that increased conversions within a week.”</div>
+        <div class="who"><div class="avatar"></div><div><b>Hamza K.</b><div style="color:#a9b3c2">Founder, City Mart</div></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal" style="margin-top:26px">
+      <div class="section-title">Contact</div>
+      <div class="grid cols-2 contact">
+        <div class="card" style="padding:18px">
+          <form onsubmit="sendMail(event)">
+            <div class="field"><label>Name</label><input required id="name" placeholder="Your name" /></div>
+            <div class="field"><label>Email</label><input required id="email" type="email" placeholder="you@example.com" /></div>
+            <div class="field"><label>Message</label><textarea required id="msg" placeholder="Tell me about your project..."></textarea></div>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="card" style="padding:18px">
+          <p style="margin:0 0 6px">Prefer quick chat?</p>
+          <p style="margin:0 0 12px"><b>WhatsApp:</b> <a href="https://wa.me/923090305566" style="color:#b8c4ff">+92 309 0305566</a></p>
+          <p style="margin:0 0 12px"><b>Email:</b> <a href="mailto:eelee05h@gmail.com" style="color:#b8c4ff">eelee05h@gmail.com</a></p>
+          <p style="margin:0">Available for freelance & long-term projects.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Muhammad Rehan — Built with love & vanilla code.
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // dark / light toggle (persists)
+    const modeBtn = document.getElementById('modeBtn');
+    const LS = 'rehan-mode';
+    let dark = localStorage.getItem(LS) !== 'light';
+    const apply = ()=>{ document.documentElement.style.filter = dark ? 'none' : 'invert(1) hue-rotate(180deg)'; modeBtn.textContent = dark?'🌙 Dark':'☀️ Light'; };
+    modeBtn.onclick=()=>{ dark=!dark; localStorage.setItem(LS, dark?'dark':'light'); apply(); }; apply();
+
+    // reveal on scroll
+    const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting && e.target.classList.add('show')), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // simple mailto with form values
+    function sendMail(ev){
+      ev.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const msg = encodeURIComponent(document.getElementById('msg').value.trim());
+      const body = `Name: ${name}%0AEmail: ${email}%0A%0A${msg}`;
+      window.location.href = `mailto:eelee05h@gmail.com?subject=New Project Inquiry&body=${body}`;
+    }
+  </script>
+</body>
+</html>
